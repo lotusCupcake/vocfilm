@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VocFilm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="shortcut icon" href="./assets/voc.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            <span class="voc">Voc</span>Film
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#trending">Trending</a></li>
+            <li><a href="#latest">Latest</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." id="search-input">
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1>Selamat Datang di VocFilm</h1>
+        <p>Temukan film favoritmu di sini!</p>
+    </header>
+
+    <section class="movies-section" id="trending">
+        <h2>Trending</h2>
+        <div class="movies-container-trending">
+        </div>
+    </section>
+
+    <section class="movies-section" id="latest">
+        <h2>Latest</h2>
+        <div class="movies-container-latest">
+        </div>
+    </section>
+    
+    <section class="movies-section" id="result">
+        <h2>Result</h2>
+        <div class="movies-container-result">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 VocFilm. All rights reserved.</p>
+    </footer>
+
+    <script src="./assets/script.js"></script>
+
+</body>
+
+</html>
