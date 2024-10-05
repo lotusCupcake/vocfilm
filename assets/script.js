@@ -124,19 +124,18 @@ const movies = [
 function showMovies(mov, search = false) {
   const trending = document.querySelector(".movies-container-trending");
   const latest = document.querySelector(".movies-container-latest");
-    const result = document.querySelector(".movies-container-result");
-    
+  const result = document.querySelector(".movies-container-result");
 
   const trendingSection = document.querySelector("#trending");
   const latestSection = document.querySelector("#latest");
-    const resultSection = document.querySelector("#result");
-    
-    if (search) {
-      if (mov.length === 0) {
-        result.innerHTML = "Tidak ada film yang cocok, coba keyword lain deh :)";
-        resultSection.removeAttribute("hidden");
-        return;
-      }
+  const resultSection = document.querySelector("#result");
+
+  if (search) {
+    if (mov.length === 0) {
+      result.innerHTML = "Tidak ada film yang cocok, coba keyword lain deh :)";
+      resultSection.removeAttribute("hidden");
+      return;
+    }
     trendingSection.setAttribute("hidden", true);
     latestSection.setAttribute("hidden", true);
     resultSection.removeAttribute("hidden");
@@ -148,16 +147,17 @@ function showMovies(mov, search = false) {
 
   trending.innerHTML = "";
   result.innerHTML = "";
-    latest.innerHTML = "";
-    
+  latest.innerHTML = "";
+
   for (const movie of mov) {
     const element = createElement(movie);
-      if (search) {
+    if (search) {
+      result.scrollIntoView({ behavior: "smooth" });
       result.appendChild(element[0]);
     } else {
-        if (element[1] === "trending") {
-          trending.appendChild(element[0]);
-        } else {
+      if (element[1] === "trending") {
+        trending.appendChild(element[0]);
+      } else {
         latest.appendChild(element[0]);
       }
     }
@@ -184,22 +184,22 @@ const home = document.querySelector("#home");
 const navLinks = document.querySelectorAll(".nav-links a");
 
 function searchMovies() {
-    let search=true
+  let search = true;
   const filter = searchInput.value;
   const filteredMovies = movies.filter((mov) =>
     mov.title.toLowerCase().includes(filter.toLowerCase())
   );
-if (filter==="") {
-     search=false
-}
+  if (filter === "") {
+    search = false;
+  }
   showMovies(filteredMovies, search);
 }
 
 searchInput.addEventListener("input", searchMovies);
 
 function handlingNav() {
-    searchInput.value = "";
-    showMovies(movies);
+  searchInput.value = "";
+  showMovies(movies);
 }
 navLinks.forEach((link) => link.addEventListener("click", handlingNav));
 
